@@ -42,6 +42,26 @@ app.get('/birds', async (req, res) => {
     console.log(err);
   }
 });
+
+app.get('/birds/:id', async (req, res) => {
+  try {
+    const birdById = await Bird.findById(req.params.id);
+    return res.status(200).json({ birdById });
+  } catch (err) {
+    console.log(err);
+  }
+});
+app.put('/birds/:id', async (req, res) => {
+  try {
+    if (!req.body.name) {
+      return res.status(400).send('All fields are required');
+    }
+    const { id } = req.params;
+    const result = await Bird.findByIdAndUpdate(id, req.body);
+  } catch (err) {
+    console.log(err);
+  }
+});
 mongoose
   .connect(mongoDBURL)
   .then(() => {
