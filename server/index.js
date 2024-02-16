@@ -1,4 +1,4 @@
-import express from 'express'; // ES6 import syntax
+import express, { json } from 'express'; // ES6 import syntax
 import { PORT, mongoDBURL } from './config/config.js';
 import mongoose from 'mongoose';
 import Bird from './models/Bird.js';
@@ -29,6 +29,15 @@ app.post('/birds', async (req, res) => {
     };
     const bird = await Bird.create(newBird);
     console.log(bird);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get('/birds', async (req, res) => {
+  try {
+    const birds = await Bird.find({});
+    return res.status(200).json({ birds });
   } catch (err) {
     console.log(err);
   }
