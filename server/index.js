@@ -1,8 +1,11 @@
 import express from 'express'; // ES6 import syntax
 import { PORT, mongoDBURL } from './config/config.js';
 import mongoose from 'mongoose';
+import Bird from './models/Bird.js';
 
 const app = express();
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
   console.log(req.headers);
@@ -13,6 +16,23 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
+app.post('/birds', async (req, res) => {
+  try {
+    if (!req.body.name) {
+      return res.status(400).send('All fields are required');
+    }
+    const newBird = {
+      name: req.body.name,
+      scientificName: req.body.scientificName,
+      habitat: req.body.habitat,
+      lifeExpectancy: req.body.lifeExpectancy,
+    };
+    const bird = await Bird.create(newBird);
+    console.log(bird);
+  } catch (err) {
+    console.log(err);
+  }
+});
 mongoose
   .connect(mongoDBURL)
   .then(() => {
