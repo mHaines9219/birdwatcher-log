@@ -62,6 +62,16 @@ app.put('/birds/:id', async (req, res) => {
     console.log(err);
   }
 });
+
+app.delete('/birds/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await Bird.findByIdAndDelete(id);
+    return res.status(200).send('Bird deleted');
+  } catch (err) {
+    console.log(err);
+  }
+});
 mongoose
   .connect(mongoDBURL)
   .then(() => {
