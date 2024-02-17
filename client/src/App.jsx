@@ -12,9 +12,8 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/birds/create" element={<CreateBird />} />
       <Route path="/birds/details/:id" element={<ReadBird />} />
-      <Route path="/birds/details/:id/delete" element={<DeleteBird />} />
-      <Route path="/birds/details/:id/update" element={<UpdateBird />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/birds/details/delete/:id" element={<DeleteBird />} />
+      <Route path="/birds/details/update/:id" element={<UpdateBird />} />
     </Routes>
   );
 }
