@@ -22,11 +22,17 @@ export default function Home({ setBirds, birds }) {
 
   return (
     <>
+      <h1>Bird Journal</h1>
+      <br></br>
       {birds.map((bird, index) => (
         <div key={index}>
           <Link to={`/birds/details/${bird._id}`}>{bird.name}</Link>
         </div>
       ))}
+
+      <div>
+        <Link to={'/birds/create'}>Log a Bird Sighting</Link>
+      </div>
     </>
   );
 }
