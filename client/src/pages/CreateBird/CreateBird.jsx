@@ -7,8 +7,7 @@ export default function CreateBird() {
   const [scientificName, setScientificName] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     axios
       .post('http://localhost:5001/birds/create', {
         name: birdName,

@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import Spinner from '../../components/Spinner/Spinner';
 import { Link } from 'react-router-dom';
-export default function Home() {
-  const [birds, setBirds] = useState([]);
-  const [loading, setLoading] = useState(false);
+import PropTypes from 'prop-types';
+
+export default function Home({ setBirds, birds }) {
+  Home.propTypes = {
+    birds: PropTypes.array.isRequired,
+    setBirds: PropTypes.func.isRequired,
+  };
 
   useEffect(() => {
-    setLoading(true);
     axios
       .get('http://localhost:5001/birds')
       .then((res) => {
         setBirds(res.data.birds);
-        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -23,7 +24,7 @@ export default function Home() {
     <>
       {birds.map((bird, index) => (
         <div key={index}>
-          <Link to={`/bird/${bird._id}`}>{bird.name}</Link>
+          <Link to={`/birds/details/${bird._id}`}>{bird.name}</Link>
         </div>
       ))}
     </>
