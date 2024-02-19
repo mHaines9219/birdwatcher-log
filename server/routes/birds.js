@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 import Bird from '../models/Bird.js';
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
   try {
     if (!req.body.name) {
       return res.status(400).send('All fields are required');
