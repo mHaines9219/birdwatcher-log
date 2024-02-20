@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 export default function ReadBird({ setBirds, birds }) {
   const { id } = useParams();
 
@@ -22,6 +22,7 @@ export default function ReadBird({ setBirds, birds }) {
       <div>
         {birds.name}
         {birds.updatedAt}
+        <Link to={`/birds/details/update/${id}`}>Edit</Link>
       </div>
     </>
   ); // Display property of the single bird
