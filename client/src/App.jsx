@@ -5,6 +5,7 @@ import ReadBird from './pages/ReadBird/ReadBird';
 import DeleteBird from './pages/DeleteBird/DeleteBird';
 import UpdateBird from './pages/UpdateBird/UpdateBird';
 import Home from './pages/Home/Home';
+import './index.css';
 
 export default function App() {
   const [birds, setBirds] = useState([]);

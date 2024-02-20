@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/details/:id', async (req, res) => {
   try {
     const birdById = await Bird.findById(req.params.id);
     return res.status(200).json({ birdById });
