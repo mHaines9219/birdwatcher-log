@@ -37,7 +37,7 @@ router.get('/details/:id', async (req, res) => {
     console.log(err);
   }
 });
-router.put('/:id', async (req, res) => {
+router.put('/details/update/:id', async (req, res) => {
   try {
     if (!req.body.name) {
       return res.status(400).send('All fields are required');
@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/details/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await Bird.findByIdAndDelete(id);
