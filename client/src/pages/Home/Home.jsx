@@ -2,6 +2,14 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import './Home.css';
+
+// import required modules
+import { FreeMode, Pagination } from 'swiper/modules';
 
 export default function Home({ setBirds, birds }) {
   Home.propTypes = {
@@ -13,6 +21,7 @@ export default function Home({ setBirds, birds }) {
     axios
       .get('http://localhost:5001/birds')
       .then((res) => {
+        console.log(res.data.birds);
         setBirds(res.data.birds);
       })
       .catch((err) => {
@@ -24,11 +33,23 @@ export default function Home({ setBirds, birds }) {
     <>
       <h1>Bird Journal</h1>
       <br></br>
-      {birds.map((bird, index) => (
-        <div key={index}>
-          <Link to={`/birds/details/${bird._id}`}>{bird.name}</Link>
-        </div>
-      ))}
+
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className="mySwiper"
+      >
+        {birds.map((bird, index) => (
+          <SwiperSlide className="swiper-card" key={index}>
+            <Link to={`/birds/details/${bird._id}`}>{bird.name}</Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       <div>
         <Link to={'/birds/create'}>Log a Bird Sighting</Link>

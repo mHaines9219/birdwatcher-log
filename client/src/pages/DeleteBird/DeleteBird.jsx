@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-export default function DeleteBird(setBirds, birds) {
+import { useParams, useNavigate } from 'react-router-dom';
+export default function DeleteBird() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const handleDelete = () => {
     axios
       .delete(`http://localhost:5001/birds/details/delete/${id}`)
       .then(() => {
-        alert('Bird Deleted'); // Set the single bird's details
+        alert('Bird Deleted');
+        navigate('/');
       })
 
       .catch((err) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 export default function UpdateBird() {
   const [birdName, setBirdName] = useState('');
   const [scientificName, setScientificName] = useState('');
@@ -38,6 +38,7 @@ export default function UpdateBird() {
           onChange={(e) => setScientificName(e.target.value)}
         ></input>{' '}
         <button onClick={handleEdit}>Button</button>
+        <Link to={`/`}>Home</Link>
       </form>
     </>
   );
