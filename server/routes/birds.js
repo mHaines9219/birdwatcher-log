@@ -49,7 +49,7 @@ router.put('/details/update/:id', async (req, res) => {
   }
 });
 
-router.delete('/details/:id', async (req, res) => {
+router.delete('/details/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await Bird.findByIdAndDelete(id);

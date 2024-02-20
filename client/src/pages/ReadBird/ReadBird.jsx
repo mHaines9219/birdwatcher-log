@@ -23,6 +23,7 @@ export default function ReadBird({ setBirds, birds }) {
         {birds.name}
         {birds.updatedAt}
         <Link to={`/birds/details/update/${id}`}>Edit</Link>
+        <Link to={`/birds/details/delete/${id}`}>Delete</Link>
       </div>
     </>
   ); // Display property of the single bird

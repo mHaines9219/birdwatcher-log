@@ -19,7 +19,10 @@ export default function App() {
         path="/birds/details/:id"
         element={<ReadBird birds={birds} setBirds={setBirds} />}
       />
-      <Route path="/birds/details/delete/:id" element={<DeleteBird />} />
+      <Route
+        path="/birds/details/delete/:id"
+        element={<DeleteBird birds={birds} setBirds={setBirds} />}
+      />
       <Route path="/birds/details/update/:id" element={<UpdateBird />} />
     </Routes>
   );
