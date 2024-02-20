@@ -2,3 +2,21 @@
   border: 2px solid green;
   height: 10rem;
 }
+
+.welcome-header {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.bird-name-header {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card-link {
+  text-decoration: none;
+}

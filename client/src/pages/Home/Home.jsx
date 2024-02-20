@@ -31,7 +31,7 @@ export default function Home({ setBirds, birds }) {
 
   return (
     <>
-      <h1>Bird Journal</h1>
+      <h1 className="welcome-header">Bird Journal</h1>
       <br></br>
 
       <Swiper
@@ -46,7 +46,9 @@ export default function Home({ setBirds, birds }) {
       >
         {birds.map((bird, index) => (
           <SwiperSlide className="swiper-card" key={index}>
-            <Link to={`/birds/details/${bird._id}`}>{bird.name}</Link>
+            <Link className="card-link" to={`/birds/details/${bird._id}`}>
+              <h3 className="bird-name-header">{bird.name}</h3>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
