@@ -49,8 +49,9 @@ export default function Home({ setBirds, birds }) {
             <Link className="card-link" to={`/birds/details/${bird._id}`}>
               <h3 className="bird-name-header">{bird.name}</h3>
               <h5 className="bird-sci-name">{bird.scientificName}</h5>
-              <p className="bird-date">{bird.createdAt}</p>
-              <p className="bird-notes">{bird.notes}</p>
+              <p className="bird-date">
+                {new Date(bird.createdAt).toLocaleDateString('en-US')}
+              </p>
             </Link>
           </SwiperSlide>
         ))}
