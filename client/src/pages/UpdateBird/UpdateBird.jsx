@@ -31,7 +31,7 @@ export default function UpdateBird() {
     <>
       <Link to="/">Home</Link>
 
-      <h1 id="update-header">Update Entry</h1>
+      <h1 id="update-header">UPDATE ENTRY</h1>
       <form id="update-form" onSubmit={handleEdit}>
         {' '}
         {/* Change here */}

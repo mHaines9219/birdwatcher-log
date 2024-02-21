@@ -1,5 +1,6 @@
 .swiper-card {
-  border: 2px solid green;
+  border: 2px solid var(--main-text-color);
+  border-radius: 40px;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -37,4 +38,12 @@
   text-align: center;
   margin-top: auto;
   padding: 20px;
+}
+
+.welcome-header {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--main-text-color);
 }

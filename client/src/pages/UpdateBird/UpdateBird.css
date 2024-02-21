@@ -8,4 +8,5 @@
 
 #update-header {
   text-align: center;
+  color: var(--main-text-color);
 }

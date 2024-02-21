@@ -1,7 +1,3 @@
-input {
-  border: 2px solid red;
-}
-
 #create-form {
   display: flex;
   flex-direction: column;
@@ -46,4 +42,5 @@ textarea {
 
 #create-header {
   text-align: center;
+  color: var(--main-text-color);
 }
