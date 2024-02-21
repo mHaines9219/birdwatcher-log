@@ -22,7 +22,8 @@ export default function ReadBird() {
     <>
       <div>
         {currentBird.name}
-        {currentBird.updatedAt}
+        {currentBird.scientificName}
+        {currentBird.notes}
         <Link to={`/birds/details/update/${id}`}>Edit</Link>
         <Link to={`/birds/details/delete/${id}`}>Delete</Link>
         <Link to={`/`}>Home</Link>

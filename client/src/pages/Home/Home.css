@@ -1,6 +1,10 @@
 .swiper-card {
   border: 2px solid green;
-  height: 10rem;
+  height: 20rem;
+}
+.swiper-card:hover {
+  background-color: rosybrown;
+  height: 20rem;
 }
 
 .welcome-header {
@@ -19,4 +23,11 @@
 
 .card-link {
   text-decoration: none;
+}
+
+.bird-sci-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
 }

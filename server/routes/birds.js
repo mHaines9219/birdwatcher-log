@@ -10,8 +10,7 @@ router.post('/create', async (req, res) => {
     const newBird = {
       name: req.body.name,
       scientificName: req.body.scientificName,
-      habitat: req.body.habitat,
-      lifeExpectancy: req.body.lifeExpectancy,
+      notes: req.body.notes,
     };
     const bird = await Bird.create(newBird);
     console.log(bird);

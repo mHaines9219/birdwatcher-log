@@ -8,14 +8,11 @@ const birdSchema = mongoose.Schema(
     },
     scientificName: {
       type: String,
-      required: true,
-    },
-    habitat: {
-      type: String,
       required: false,
     },
-    lifeExpectancy: {
-      type: Number,
+
+    notes: {
+      type: String,
       required: false,
     },
   },
