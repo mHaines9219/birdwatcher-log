@@ -5,7 +5,8 @@ export default function DeleteBird() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault();
     axios
       .delete(`http://localhost:5001/birds/details/delete/${id}`)
       .then(() => {

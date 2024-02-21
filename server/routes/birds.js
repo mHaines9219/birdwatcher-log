@@ -42,7 +42,9 @@ router.put('/details/update/:id', async (req, res) => {
       return res.status(400).send('All fields are required');
     }
     const { id } = req.params;
+    console.log(req.body);
     const result = await Bird.findByIdAndUpdate(id, req.body);
+    console.log('THIS IS THE RESULT' + result);
   } catch (err) {
     console.log(err);
   }
@@ -52,6 +54,7 @@ router.delete('/details/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const result = await Bird.findByIdAndDelete(id);
+    console.log(result + 'HAS BEEN DELETED');
     return res.status(200).send('Bird deleted');
   } catch (err) {
     console.log(err);

@@ -36,22 +36,23 @@ export default function CreateBird() {
           placeholder="Bird Name"
           value={birdName}
           onChange={(e) => setBirdName(e.target.value)}
-        ></input>{' '}
+        />
         <input
           id="scientificName"
           type="text"
           placeholder="Scientific Name"
           value={scientificName}
           onChange={(e) => setScientificName(e.target.value)}
-        ></input>{' '}
+        />
         <input
           id="notes"
           type="text"
           placeholder="Notes"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
-        ></input>{' '}
-        <button onClick={handleSubmit}>Button</button>
+        />
+        {/* Ensure the button is of type submit to semantically indicate its purpose */}
+        <button type="submit">Create Bird</button>
       </form>
     </>
   );
