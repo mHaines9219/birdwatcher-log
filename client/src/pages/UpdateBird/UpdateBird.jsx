@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-
+import { useNavigate, useParams, Link } from 'react-router-dom';
+import './UpdateBird.css';
 export default function UpdateBird() {
   const [birdName, setBirdName] = useState('');
   const [scientificName, setScientificName] = useState('');
@@ -29,8 +29,10 @@ export default function UpdateBird() {
 
   return (
     <>
-      <div>Update</div>
-      <form onSubmit={handleEdit}>
+      <Link to="/">Home</Link>
+
+      <h1 id="update-header">Update Entry</h1>
+      <form id="update-form" onSubmit={handleEdit}>
         {' '}
         {/* Change here */}
         <input
@@ -55,7 +57,7 @@ export default function UpdateBird() {
           onChange={(e) => setNotes(e.target.value)}
           // Assuming you have a state hook for notes like the others
         />
-        <button type="submit">Update Bird</button> {/* Change here */}
+        <button type="submit">UPDATE</button> {/* Change here */}
       </form>
     </>
   );

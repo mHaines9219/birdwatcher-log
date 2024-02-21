@@ -14,8 +14,10 @@ router.post('/create', async (req, res) => {
     };
     const bird = await Bird.create(newBird);
     console.log(bird);
+    return res.status(201).json({ bird });
   } catch (err) {
     console.log(err);
+    return res.status(500).send('Something went wrong');
   }
 });
 
@@ -42,11 +44,13 @@ router.put('/details/update/:id', async (req, res) => {
       return res.status(400).send('All fields are required');
     }
     const { id } = req.params;
-    console.log(req.body);
+    console.log('THIS IS THE PRE UPDATE BODY -----> ', req.body);
     const result = await Bird.findByIdAndUpdate(id, req.body);
-    console.log('THIS IS THE RESULT' + result);
+    console.log('THIS IS THE RESULT ------> ', result);
+    return res.status(200).send('Bird updated');
   } catch (err) {
     console.log(err);
+    return res.status(500).send('Something went wrong');
   }
 });
 

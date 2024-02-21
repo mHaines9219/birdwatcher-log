@@ -1,3 +1,49 @@
 input {
   border: 2px solid red;
 }
+
+#create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  text-align: center;
+}
+input::placeholder {
+  text-align: center;
+}
+
+input[type='text'] {
+  background-color: var(--field-color);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+textarea {
+  background-color: var(--field-color);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  font-size: 1.5rem;
+  text-align: center;
+  resize: none;
+}
+
+#notes {
+  height: 100px;
+}
+
+#create-header {
+  text-align: center;
+}
