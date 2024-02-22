@@ -1,5 +1,88 @@
 .read-page-container {
   display: flex;
-  height: 200px;
-  border: 2px solid red;
+  height: 70vh;
+  width: 70%;
+  background-color: antiquewhite;
+  justify-content: center;
+  border-radius: 40px;
+}
+.read-page-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+#read-header {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--main-text-color);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-grid-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.right-grid-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  margin-top: 15%;
+  align-items: left;
+  width: 100%;
+  margin-left: 5%;
+}
+
+#photo {
+  display: flex;
+  color: white;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#bird-name {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+#bird-sci-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.bird-detail-header-wrapper {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.bird-detail-header-span {
+  font-style: italic;
+}
+
+.link-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 20%;
 }

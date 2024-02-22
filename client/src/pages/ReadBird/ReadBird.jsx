@@ -21,15 +21,32 @@ export default function ReadBird() {
 
   return (
     <>
-      <div className="read-page-container">
-        <div>
-          <div id="bird-name">{currentBird.name}</div>
-          <div id="bird-sci-name">{currentBird.scientificName}</div>
-          <div id="bird-notes">{currentBird.notes}</div>
-          <div className="link-container">
-            <Link to={`/birds/details/update/${id}`}>Edit</Link>
-            <Link to={`/birds/details/delete/${id}`}>Delete</Link>
-            <Link to={`/`}>Home</Link>
+      <div className="top-page">
+        <Link to={`/`}>Home</Link>
+        <h1 id="read-header">BIRD DETAILS</h1>
+      </div>
+      <div className="read-page-wrapper">
+        <div className="read-page-container">
+          <div className="left-grid-col">
+            <span id="photo">PHOTO</span>
+          </div>
+          <div className="right-grid-col">
+            <div className="bird-detail-header-wrapper">
+              <span className="bird-detail-header-span">NAME</span>
+              <div id="bird-name">{currentBird.name}</div>
+            </div>
+            <div className="bird-detail-header-wrapper">
+              <span className="bird-detail-header-span">SCIENTIFIC NAME</span>
+              <div id="bird-sci-name">{currentBird.scientificName}</div>
+            </div>
+            <div className="bird-detail-header-wrapper">
+              <span className="bird-detail-header-span">NOTES</span>
+              <div id="bird-notes">{currentBird.notes}</div>
+            </div>
+            <div className="link-container">
+              <Link to={`/birds/details/update/${id}`}>Edit</Link>
+              <Link to={`/birds/details/delete/${id}`}>Delete</Link>
+            </div>
           </div>
         </div>
       </div>
