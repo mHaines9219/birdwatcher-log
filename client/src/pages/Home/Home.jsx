@@ -37,12 +37,19 @@ export default function Home({ setBirds, birds }) {
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
+        className="mySwiper"
         freeMode={true}
         pagination={{
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper"
+        style={{
+          '--swiper-pagination-color': '#FFBA08',
+          '--swiper-pagination-bullet-inactive-color': '#999999',
+          '--swiper-pagination-bullet-inactive-opacity': '1',
+          '--swiper-pagination-bullet-size': '16px',
+          '--swiper-pagination-bullet-horizontal-gap': '6px',
+        }}
       >
         {birds.map((bird, index) => (
           <SwiperSlide className="swiper-card" key={index}>
@@ -57,7 +64,7 @@ export default function Home({ setBirds, birds }) {
         ))}
       </Swiper>
 
-      <div>
+      <div className="log-btn">
         <Link to={'/birds/create'}>Log a Bird Sighting</Link>
       </div>
     </>

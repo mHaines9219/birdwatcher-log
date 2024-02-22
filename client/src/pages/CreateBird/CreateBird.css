@@ -43,4 +43,6 @@ textarea {
 #create-header {
   text-align: center;
   color: var(--main-text-color);
+  margin-left: auto;
+  margin-right: auto;
 }

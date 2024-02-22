@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CreateBird.css';
 import { Link, useNavigate } from 'react-router-dom';
+import HomeIconComp from '../../components/HomeIconComp';
 export default function CreateBird() {
   const [birdName, setBirdName] = useState('');
   const [scientificName, setScientificName] = useState('');
@@ -31,8 +32,12 @@ export default function CreateBird() {
   };
   return (
     <>
-      <Link to="/">Home</Link>
-      <h1 id="create-header">Log a Bird Sighting</h1>
+      <div className="top-page">
+        <Link to="/">
+          <HomeIconComp />
+        </Link>
+        <h1 id="create-header">Log a Bird Sighting</h1>
+      </div>
       <form id="create-form" onSubmit={handleSubmit}>
         <input
           id="birdName"
