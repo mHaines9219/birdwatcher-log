@@ -1,16 +1,22 @@
 .swiper-card {
   border: 2px solid var(--main-text-color);
   border-radius: 40px;
-  height: 40vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: antiquewhite;
   transition: 0.3s;
+  padding: 20px;
 }
 .swiper-card:hover {
   opacity: 0.8;
   transition: 0.3s;
+}
+.swiper {
+  width: 90vw;
+  padding: 20px;
+  overflow: visible;
 }
 
 .welcome-header {
