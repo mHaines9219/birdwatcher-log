@@ -8,6 +8,12 @@
   background-color: antiquewhite;
   transition: 0.3s;
   padding: 20px;
+  width: 100%;
+}
+.swiper-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 .swiper-card:hover {
   opacity: 0.8;
@@ -58,7 +64,7 @@
   color: var(--main-text-color);
 }
 
-.log-btn {
+.log-btn-wrapper {
   background-color: var(--main-text-color);
   color: black;
   justify-content: center;
@@ -70,4 +76,22 @@
   margin-top: 2rem;
   text-decoration: none;
   border-radius: 20px;
+}
+.log-btn-wrapper:hover {
+  background-color: var(--main-text-color);
+  color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 20%;
+  height: 10vh;
+  margin: auto;
+  margin-top: 2rem;
+  text-decoration: none;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+#log-btn {
+  text-align: center;
 }

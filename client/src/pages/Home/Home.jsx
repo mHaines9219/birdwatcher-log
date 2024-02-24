@@ -6,10 +6,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import './Home.css';
 
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Navigation } from 'swiper/modules';
 
 export default function Home({ setBirds, birds }) {
   Home.propTypes = {
@@ -39,10 +40,12 @@ export default function Home({ setBirds, birds }) {
           spaceBetween={30}
           className="mySwiper"
           freeMode={true}
+          speed={500}
+          loop={true}
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Pagination]}
+          modules={[Navigation, FreeMode]}
           style={{
             '--swiper-pagination-color': '#FFBA08',
             '--swiper-pagination-bullet-inactive-color': '#999999',
@@ -65,8 +68,10 @@ export default function Home({ setBirds, birds }) {
         </Swiper>
       </div>
 
-      <div className="log-btn">
-        <Link to={'/birds/create'}>Log a Bird Sighting</Link>
+      <div className="log-btn-wrapper">
+        <Link id="log-btn" to={'/birds/create'}>
+          Log a Bird Sighting
+        </Link>
       </div>
     </>
   );
