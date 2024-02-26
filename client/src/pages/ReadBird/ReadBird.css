@@ -4,7 +4,8 @@
   width: 70%;
   background-color: antiquewhite;
   justify-content: center;
-  border-radius: 40px;
+  border-top-right-radius: 30px;
+  border: 12px solid black;
 }
 .read-page-wrapper {
   width: 100%;
