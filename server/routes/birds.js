@@ -42,21 +42,56 @@ router.get('/details/:id', async (req, res) => {
     console.log(err);
   }
 });
-router.put('/details/update/:id', async (req, res) => {
-  try {
-    if (!req.body.name) {
-      return res.status(400).send('All fields are required');
+router.put(
+  '/details/update/:id',
+  upload.single('imageUrl'),
+  async (req, res) => {
+    try {
+      if (!req.body.name) {
+        return res.status(400).send('All fields are required');
+      }
+      const { id } = req.params;
+      console.log('THIS IS THE PRE UPDATE BODY -----> ', req.body);
+      const newInfo = {
+        name: req.body.name,
+        scientificName: req.body.scientificName,
+        notes: req.body.notes,
+        imageUrl: req.file ? req.file.path : undefined, // check if req.file is defined
+      };
+      const result = await Bird.findByIdAndUpdate(id, newInfo, { new: true }); // get the updated document
+      console.log('THIS IS THE RESULT ------> ', result);
+      return res.status(200).send('Bird updated');
+    } catch (err) {
+      console.log(err);
+      return res.status(500).send('Something went wrong');
     }
-    const { id } = req.params;
-    console.log('THIS IS THE PRE UPDATE BODY -----> ', req.body);
-    const result = await Bird.findByIdAndUpdate(id, req.body);
-    console.log('THIS IS THE RESULT ------> ', result);
-    return res.status(200).send('Bird updated');
-  } catch (err) {
-    console.log(err);
-    return res.status(500).send('Something went wrong');
   }
-});
+);
+// router.put(
+//   '/details/update/:id',
+//   upload.single('imageUrl'),
+//   async (req, res) => {
+//     try {
+//       if (!req.body.name) {
+//         return res.status(400).send('All fields are required');
+//       }
+//       const { id } = req.params;
+//       console.log('THIS IS THE PRE UPDATE BODY -----> ', req.body);
+//       const newInfo = {
+//         name: req.body.name,
+//         scientificName: req.body.scientificName,
+//         notes: req.body.notes,
+//         imageUrl: req.file.path,
+//       };
+//       const result = await Bird.findByIdAndUpdate(id, newInfo);
+//       console.log('THIS IS THE RESULT ------> ', result);
+//       return res.status(200).send('Bird updated');
+//     } catch (err) {
+//       console.log(err);
+//       return res.status(500).send('Something went wrong');
+//     }
+//   }
+// );
 
 router.delete('/details/delete/:id', async (req, res) => {
   try {

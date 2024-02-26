@@ -4,21 +4,31 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import './UpdateBird.css';
 import Home from '../Home/Home';
 import HomeIconComp from '../../components/HomeIconComp';
+import path from 'path';
+
 export default function UpdateBird() {
   const [birdName, setBirdName] = useState('');
   const [scientificName, setScientificName] = useState('');
   const [notes, setNotes] = useState('');
+  const [imageUrl, setImageUrl] = useState(''); // Add imageUrl state
   const navigate = useNavigate();
   const { id } = useParams();
 
   const handleEdit = (e) => {
     e.preventDefault();
     console.log('Edit handler called');
-    // Prevent the default form submission behavior
+
+    const formData = new FormData();
+    formData.append('name', birdName);
+    formData.append('scientificName', scientificName);
+    formData.append('notes', notes);
+    formData.append('imageUrl', imageUrl);
+
     axios
-      .put(`http://localhost:5001/birds/details/update/${id}`, {
-        name: birdName,
-        scientificName: scientificName,
+      .put(`http://localhost:5001/birds/details/update/${id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       })
       .then(() => {
         console.log('Bird Updated');
@@ -28,6 +38,25 @@ export default function UpdateBird() {
         console.log(err);
       });
   };
+  // const handleEdit = (e) => {
+  //   e.preventDefault();
+  //   console.log('Edit handler called');
+  //   // Prevent the default form submission behavior
+  //   axios
+  //     .put(`http://localhost:5001/birds/details/update/${id}`, {
+  //       name: birdName,
+  //       scientificName: scientificName,
+  //       notes: notes,
+  //       imageUrl: imageUrl,
+  //     })
+  //     .then(() => {
+  //       console.log('Bird Updated');
+  //       navigate(`/birds/details/${id}`);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <>
@@ -61,6 +90,11 @@ export default function UpdateBird() {
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           // Assuming you have a state hook for notes like the others
+        />
+        <input
+          type="file"
+          name="imageUrl"
+          onChange={(e) => setImageUrl(e.target.files[0])}
         />
         <button type="submit">UPDATE</button> {/* Change here */}
       </form>
