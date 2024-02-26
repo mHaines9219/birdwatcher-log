@@ -1,8 +1,11 @@
 import express from 'express';
 const router = express.Router();
 import Bird from '../models/Bird.js';
+import multer from 'multer';
+import upload from '../config/multerConfig.js';
+import path from 'path';
 
-router.post('/create', async (req, res) => {
+router.post('/create', upload.single('imageUrl'), async (req, res) => {
   try {
     if (!req.body.name) {
       return res.status(400).send('All fields are required');
@@ -11,6 +14,7 @@ router.post('/create', async (req, res) => {
       name: req.body.name,
       scientificName: req.body.scientificName,
       notes: req.body.notes,
+      imageUrl: req.file.path,
     };
     const bird = await Bird.create(newBird);
     console.log(bird);

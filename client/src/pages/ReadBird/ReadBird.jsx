@@ -35,7 +35,11 @@ export default function ReadBird() {
       <div className="read-page-wrapper">
         <div className="read-page-container">
           <div className="left-grid-col">
-            <span id="photo">PHOTO</span>
+            <img
+              id="photo"
+              src={`http://localhost:5001/${currentBird.imageUrl}`}
+              alt="Bird"
+            />{' '}
           </div>
 
           <div className="right-side-wrapper">
