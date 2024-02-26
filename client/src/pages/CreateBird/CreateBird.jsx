@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import './CreateBird.css';
 import { Link, useNavigate } from 'react-router-dom';

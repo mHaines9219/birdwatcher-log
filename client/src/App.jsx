@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CreateBird from './pages/CreateBird/CreateBird';
 import ReadBird from './pages/ReadBird/ReadBird';
@@ -9,7 +9,7 @@ import './index.css';
 
 export default function App() {
   const [birds, setBirds] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   return (
     <Routes>

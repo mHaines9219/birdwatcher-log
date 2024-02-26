@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import './UpdateBird.css';
-import Home from '../Home/Home';
 import HomeIconComp from '../../components/HomeIconComp';
-import path from 'path';
 
 export default function UpdateBird() {
   const [birdName, setBirdName] = useState('');
