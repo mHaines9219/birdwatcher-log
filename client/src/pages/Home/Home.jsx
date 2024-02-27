@@ -36,7 +36,7 @@ export default function Home({ setBirds, birds }) {
       <br></br>
       <div className="swiper-wrapper">
         <Swiper
-          slidesPerView={3}
+          slidesPerView={2}
           spaceBetween={30}
           className="mySwiper"
           freeMode={true}
@@ -52,6 +52,13 @@ export default function Home({ setBirds, birds }) {
             '--swiper-pagination-bullet-inactive-opacity': '1',
             '--swiper-pagination-bullet-size': '16px',
             '--swiper-pagination-bullet-horizontal-gap': '6px',
+          }}
+          breakpoints={{
+            // When window width is <= 450px
+            450: {
+              slidesPerView: 1, // Adjust to show 1 slide per view on smaller screens
+              spaceBetween: 10, // Optionally adjust the space between slides
+            },
           }}
         >
           {birds.map((bird, index) => (

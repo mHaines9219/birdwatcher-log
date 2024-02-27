@@ -95,3 +95,91 @@
 #log-btn {
   text-align: center;
 }
+
+@media (max-width: 450px) {
+  .swiper-card {
+    border: 2px solid var(--main-text-color);
+    border-radius: 40px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    justify-content: center;
+    background-color: antiquewhite;
+    transition: 0.3s;
+    padding: 20px;
+    width: 100%;
+  }
+  .swiper-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .swiper-card:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+  .swiper {
+    width: 90vw;
+    padding: 20px;
+    overflow: visible;
+  }
+
+  .welcome-header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .bird-name-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .card-link {
+    text-decoration: none;
+  }
+
+  .bird-sci-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .bird-date {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+  }
+
+  .welcome-header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--main-text-color);
+  }
+
+  .log-btn-wrapper {
+    background-color: var(--main-text-color);
+    color: black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 20%;
+    height: 10vh;
+    margin: auto;
+    margin-top: 2rem;
+    text-decoration: none;
+    border-radius: 20px;
+    width: 40vw;
+  }
+
+  #log-btn {
+    text-align: center;
+  }
+}
