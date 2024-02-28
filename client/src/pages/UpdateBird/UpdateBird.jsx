@@ -89,12 +89,25 @@ export default function UpdateBird() {
           onChange={(e) => setNotes(e.target.value)}
           // Assuming you have a state hook for notes like the others
         />
-        <input
+        {/* <input
           type="file"
           name="imageUrl"
           onChange={(e) => setImageUrl(e.target.files[0])}
-        />
-        <button type="submit">UPDATE</button> {/* Change here */}
+        /> */}
+        <label htmlFor="image-url" id="image-url-wrapper">
+          ADD PHOTO
+          <input
+            type="file"
+            id="image-url"
+            name="imageUrl"
+            style={{ display: 'none' }}
+            onChange={(e) => setImageUrl(e.target.files[0])}
+          />
+        </label>
+        <button id="submit-btn" type="submit">
+          UPDATE
+        </button>{' '}
+        {/* Change here */}
       </form>
     </>
   );

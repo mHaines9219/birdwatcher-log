@@ -91,13 +91,20 @@ export default function CreateBird() {
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
         />
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => setImageUrl(e.target.files[0])}
-        />
+        <label htmlFor="image-url" id="image-url-wrapper">
+          ADD PHOTO
+          <input
+            type="file"
+            id="image-url"
+            name="imageUrl"
+            style={{ display: 'none' }}
+            onChange={(e) => setImageUrl(e.target.files[0])}
+          />
+        </label>
         {/* Ensure the button is of type submit to semantically indicate its purpose */}
-        <button type="submit">CREATE</button>
+        <button id="submit-btn" type="submit">
+          CREATE
+        </button>
       </form>
     </>
   );

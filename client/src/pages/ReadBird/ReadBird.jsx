@@ -38,11 +38,13 @@ export default function ReadBird() {
               id="photo"
               src={`http://localhost:5001/${currentBird.imageUrl}`}
               alt="Bird"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
+              style={
+                {
+                  // width: '100%',
+                  // height: '100%',
+                  // // objectFit: 'cover',
+                }
+              }
             />{' '}
           </div>
 

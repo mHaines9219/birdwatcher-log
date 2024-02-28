@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -18,7 +18,17 @@ export default function Home({ setBirds, birds }) {
     setBirds: PropTypes.func.isRequired,
   };
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
+
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 450);
+    };
+
+    // Listen for resize events
+    window.addEventListener('resize', handleResize);
+
+    // Fetch birds data
     axios
       .get('http://localhost:5001/birds')
       .then((res) => {
@@ -28,7 +38,10 @@ export default function Home({ setBirds, birds }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+
+    // Cleanup resize listener
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
 
   return (
     <>
@@ -36,7 +49,7 @@ export default function Home({ setBirds, birds }) {
       <br></br>
       <div className="swiper-wrapper">
         <Swiper
-          slidesPerView={2}
+          slidesPerView={isMobile ? 2 : 3} // Conditional based on isMobile state
           spaceBetween={30}
           className="mySwiper"
           freeMode={true}
@@ -52,13 +65,6 @@ export default function Home({ setBirds, birds }) {
             '--swiper-pagination-bullet-inactive-opacity': '1',
             '--swiper-pagination-bullet-size': '16px',
             '--swiper-pagination-bullet-horizontal-gap': '6px',
-          }}
-          breakpoints={{
-            // When window width is <= 450px
-            450: {
-              slidesPerView: 1, // Adjust to show 1 slide per view on smaller screens
-              spaceBetween: 10, // Optionally adjust the space between slides
-            },
           }}
         >
           {birds.map((bird, index) => (
