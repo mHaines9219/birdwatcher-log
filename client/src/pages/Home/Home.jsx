@@ -19,6 +19,7 @@ export default function Home({ setBirds, birds }) {
   };
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,6 +35,7 @@ export default function Home({ setBirds, birds }) {
       .then((res) => {
         console.log(res.data.birds);
         setBirds(res.data.birds);
+        setIsLoaded(true);
       })
       .catch((err) => {
         console.log(err);
@@ -43,10 +45,22 @@ export default function Home({ setBirds, birds }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
+  if (!isLoaded) {
+    return (
+      <>
+        {' '}
+        <h1 className="welcome-header">BIRD JOURNAL</h1>
+        <div className="swiper-wrapper">
+          <div className="spinner">Loading...</div>
+        </div>
+      </>
+    ); // This is where you show the spinner
+  }
   return (
     <>
-      <h1 className="welcome-header">Bird Journal</h1>
+      <h1 className="welcome-header">BIRD JOURNAL</h1>
       <br></br>
+
       <div className="swiper-wrapper">
         <Swiper
           slidesPerView={isMobile ? 2 : 3} // Conditional based on isMobile state
