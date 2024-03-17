@@ -1,11 +1,12 @@
 // SignUpForm.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Signup.css';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
-const SignUpForm = ({ onSubmit }) => {
+const SignUpForm = () => {
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
     password: '',
   });
 
@@ -13,14 +14,26 @@ const SignUpForm = ({ onSubmit }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
+  const navigate = useNavigate();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios
+      .post('http://localhost:5001/signup', formData)
+      .then((res) => {
+        console.log('LOOKING FOR RESPONSE ----- >', res);
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        navigate('/');
+      });
+  };
   return (
     <>
-      <h1 className="welcome-header">Welcome to Matt's Bird Journal</h1>
+      <h1 className="welcome-header">Welcome to Matts Bird Journal</h1>
 
       <form id="reg-form" onSubmit={handleSubmit}>
         <input
@@ -42,8 +55,11 @@ const SignUpForm = ({ onSubmit }) => {
           onChange={handleChange}
           required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" value="Submit">
+          Sign Up
+        </button>
       </form>
+      <Link to="/login"> Already signed up? Log in here</Link>
     </>
   );
 };
