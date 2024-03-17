@@ -28,13 +28,13 @@ export default function CreateBird() {
       })
       .then((res) => {
         console.log('LOOKING FOR RESPONSE ----- >', res);
-        navigate('/');
+        navigate('/birds');
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        navigate('/');
+        navigate('/birds');
       });
   };
   // const handleSubmit = (e) => {
@@ -60,7 +60,7 @@ export default function CreateBird() {
   return (
     <>
       <div className="top-page">
-        <Link to="/">
+        <Link to="/birds">
           <HomeIconComp />
         </Link>
         <h1 id="create-header">Log a Bird Sighting</h1>

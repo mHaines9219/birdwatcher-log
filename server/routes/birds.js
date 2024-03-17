@@ -67,31 +67,6 @@ router.put(
     }
   }
 );
-// router.put(
-//   '/details/update/:id',
-//   upload.single('imageUrl'),
-//   async (req, res) => {
-//     try {
-//       if (!req.body.name) {
-//         return res.status(400).send('All fields are required');
-//       }
-//       const { id } = req.params;
-//       console.log('THIS IS THE PRE UPDATE BODY -----> ', req.body);
-//       const newInfo = {
-//         name: req.body.name,
-//         scientificName: req.body.scientificName,
-//         notes: req.body.notes,
-//         imageUrl: req.file.path,
-//       };
-//       const result = await Bird.findByIdAndUpdate(id, newInfo);
-//       console.log('THIS IS THE RESULT ------> ', result);
-//       return res.status(200).send('Bird updated');
-//     } catch (err) {
-//       console.log(err);
-//       return res.status(500).send('Something went wrong');
-//     }
-//   }
-// );
 
 router.delete('/details/delete/:id', async (req, res) => {
   try {

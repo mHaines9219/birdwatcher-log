@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './ReadBird.css';
 import HomeIconComp from '../../components/HomeIconComp';
@@ -11,6 +11,7 @@ export default function ReadBird() {
   const { id } = useParams();
   const [currentBird, setCurrentBird] = useState({});
 
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`http://localhost:5001/birds/details/${id}`)
@@ -23,10 +24,24 @@ export default function ReadBird() {
       });
   }, [id]); // Add id as a dependency
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    axios
+      .delete(`http://localhost:5001/birds/details/delete/${id}`)
+      .then(() => {
+        alert('Bird Deleted');
+        navigate('/birds');
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }; // Add id as a dependency
+
   return (
     <>
       <div className="top-page">
-        <Link to={`/`}>
+        <Link to={`/birds`}>
           <HomeIconComp />
         </Link>
         <h1 id="read-header">BIRD DETAILS</h1>
@@ -67,13 +82,16 @@ export default function ReadBird() {
               <Link id="edit-btn" to={`/birds/details/update/${id}`}>
                 <EditIcon />
               </Link>
-              <Link id="delete-btn" to={`/birds/details/delete/${id}`}>
+              {/* <Link id="delete-btn" to={`/birds/details/delete/${id}`}>
                 <ClearIcon />
-              </Link>
+              </Link> */}
+              <button id="delete-btn" onClick={handleDelete}>
+                <ClearIcon />
+              </button>
             </div>
           </div>
         </div>
       </div>
     </>
-  ); // Display property of the single bird
+  );
 }

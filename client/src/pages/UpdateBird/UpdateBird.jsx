@@ -36,30 +36,11 @@ export default function UpdateBird() {
         console.log(err);
       });
   };
-  // const handleEdit = (e) => {
-  //   e.preventDefault();
-  //   console.log('Edit handler called');
-  //   // Prevent the default form submission behavior
-  //   axios
-  //     .put(`http://localhost:5001/birds/details/update/${id}`, {
-  //       name: birdName,
-  //       scientificName: scientificName,
-  //       notes: notes,
-  //       imageUrl: imageUrl,
-  //     })
-  //     .then(() => {
-  //       console.log('Bird Updated');
-  //       navigate(`/birds/details/${id}`);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   return (
     <>
       <div className="top-page">
-        <Link to="/">
+        <Link to="/birds">
           <HomeIconComp />
         </Link>
         <h1 id="update-header">UPDATE ENTRY</h1>
