@@ -1,15 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send a request to your server with the form data
-    console.log(username, password);
+    axios
+      .post('http://localhost:5001/login', { username, password })
+      .then((result) => {
+        console.log(result);
+        if (result.data === 'Success') {
+          navigate('/birds');
+        } else {
+          navigate('/signup');
+          alert('You are not registered to this service');
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

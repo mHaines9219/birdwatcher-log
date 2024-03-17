@@ -46,6 +46,34 @@ app.post('/signup', async (req, res) => {
   }
 });
 
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    // Find the user in the database by username
+    const user = await User.findOne({ username });
+
+    if (user) {
+      // Compare the hashed password in the database with the password provided by the user
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+
+      if (isPasswordValid) {
+        // Passwords match, user is authenticated
+        res.json('Success');
+      } else {
+        // Passwords do not match
+        res.status(401).json('The password is incorrect');
+      }
+    } else {
+      // User not found in the database
+      res.status(404).json('No record found for the username');
+    }
+  } catch (error) {
+    // Handle errors, such as database errors
+    console.error('Error logging in:', error);
+    res.status(500).json('Error logging in');
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

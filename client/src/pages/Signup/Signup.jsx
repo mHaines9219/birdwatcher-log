@@ -20,15 +20,14 @@ const SignUpForm = () => {
     e.preventDefault();
     axios
       .post('http://localhost:5001/signup', formData)
-      .then((res) => {
-        console.log('LOOKING FOR RESPONSE ----- >', res);
-        navigate('/');
+      .then(() => {
+        navigate('/birds');
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        navigate('/');
+        navigate('/birds');
       });
   };
   return (
