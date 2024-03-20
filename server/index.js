@@ -8,6 +8,11 @@ import dotenv from 'dotenv';
 import checkAuthMiddleware from './middleware/checkAuth.js';
 import User from './models/User.js';
 import bcrypt from 'bcryptjs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 dotenv.config(); // load environment variables
 const PORT = process.env.PORT || 5001;
 const mongoDB_URL = process.env.MONGODB_URL;
@@ -64,6 +69,12 @@ app.post('/login', async (req, res) => {
     console.error('Error logging in:', error);
     res.status(500).json('Error logging in');
   }
+});
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
 });
 
 app.listen(PORT, () => {
