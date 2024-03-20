@@ -32,7 +32,10 @@ const SignUpForm = () => {
   };
   return (
     <>
-      <h1 className="welcome-header">Welcome to Matts Bird Journal</h1>
+      <h1 className="welcome-header">Welcome to the Bird Journal</h1>
+      <h3 className="explanatory-header">
+        A place for birders worldwide to log their sightings
+      </h3>
 
       <form id="reg-form" onSubmit={handleSubmit}>
         <input

@@ -25,13 +25,6 @@
   overflow: visible;
 }
 
-.welcome-header {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
 .bird-name-header {
   font-size: 2rem;
   font-weight: bold;
@@ -54,14 +47,6 @@
   text-align: center;
   margin-top: auto;
   padding: 20px;
-}
-
-.welcome-header {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--main-text-color);
 }
 
 .log-btn-wrapper {
@@ -96,6 +81,31 @@
   text-align: center;
 }
 
+.welcome-header {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  color: var(--main-text-color);
+}
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 80px;
+}
+
+.header-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+#logout-btn {
+}
+
 @media (max-width: 450px) {
   .swiper-card {
     border: 2px solid var(--main-text-color);
@@ -125,13 +135,6 @@
     overflow: visible;
   }
 
-  .welcome-header {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
   .bird-name-header {
     font-size: 2rem;
     font-weight: bold;
@@ -156,14 +159,6 @@
     padding: 20px;
   }
 
-  .welcome-header {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: var(--main-text-color);
-  }
-
   .log-btn-wrapper {
     background-color: var(--main-text-color);
     color: black;
@@ -184,6 +179,24 @@
   }
 }
 
-.spinner {
-  color: white;
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+}
+
+#logout-btn {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.welcome-header {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  color: var(--main-text-color);
 }

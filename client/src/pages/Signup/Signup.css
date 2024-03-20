@@ -4,3 +4,11 @@
   justify-content: center;
   align-items: center;
 }
+
+h3.explanatory-header {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

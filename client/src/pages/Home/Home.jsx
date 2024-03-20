@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -20,7 +20,7 @@ export default function Home({ setBirds, birds }) {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 450);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 450);
@@ -45,6 +45,9 @@ export default function Home({ setBirds, birds }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
+  const handleLogout = () => {
+    navigate('/login');
+  };
   if (!isLoaded) {
     return (
       <>
@@ -58,8 +61,14 @@ export default function Home({ setBirds, birds }) {
   }
   return (
     <>
-      <h1 className="welcome-header">BIRD JOURNAL</h1>
-      <br></br>
+      <div className="main-header">
+        <div className="header-center">
+          <h1 className="welcome-header">BIRD JOURNAL</h1>
+        </div>
+        <button id="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
 
       <div className="swiper-wrapper">
         <Swiper
